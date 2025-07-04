@@ -9,6 +9,7 @@ async function bootstrap() {
     .setTitle('Fit-App API')
     .setDescription('The Fit-App API routes and functionality descriptions')
     .setVersion('1.0')
+    .addBearerAuth()
 
     // These tags separate related routes into categories for easier use of the swagger
     .addTag('Authentication')
