@@ -9,6 +9,7 @@ import { RolesGuard } from './auth/guards/role.guard';
 import { DatabaseModule } from './database/database.module';
 import { ExercisesModule } from './exercises/exercises.module';
 import { UsersModule } from './users/users.module';
+import { WorkoutsModule } from './workouts/workouts.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { UsersModule } from './users/users.module';
     AuthModule,
     UsersModule,
     ExercisesModule,
+    WorkoutsModule,
   ],
   controllers: [AppController],
   providers: [
