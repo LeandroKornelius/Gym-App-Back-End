@@ -15,24 +15,28 @@ export class UsersService {
     return result[0] || null;
   }
 
-  async create(createUserDto: CreateUserDto): Promise<{ id: number }> {
-    // Before creating we must check if a user with that email doesn't exist already
+  async createUserWithHashedPassword(
+    createUserDto: CreateUserDto,
+  ): Promise<{ id: number }> {
     const user = await this.findOneByEmail(createUserDto.email);
     if (user) {
       throw new ConflictException('This email is already in use');
     }
 
-    // Also, we must hash the password for increased security
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(createUserDto.password, salt);
     createUserDto.password = hashedPassword;
 
-    // Creates user
     const result = await this.db.execute(
-      `INSERT INTO users (name, email, password, role) VALUES ('${createUserDto.name}', '${createUserDto.email}', '${createUserDto.password}', '${createUserDto.role}')`,
+      `INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)`,
+      [
+        createUserDto.name,
+        createUserDto.email,
+        createUserDto.password,
+        createUserDto.role,
+      ],
     );
-    return {
-      id: result.insertId,
-    };
+
+    return { id: result.insertId };
   }
 }

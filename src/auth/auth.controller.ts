@@ -29,11 +29,4 @@ export class AuthController {
   getProfile(@Request() req) {
     return req.user;
   }
-
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
-  @Post('logout')
-  async logout(@Request() req) {
-    return req.logout();
-  }
 }
