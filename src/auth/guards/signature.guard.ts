@@ -28,7 +28,6 @@ export class SignatureGuard implements CanActivate {
 
     const signatureBuffer = Buffer.from(signature, 'base64');
 
-    console.log(user.userId);
     const userDb = await this.usersService.findById(user.userId);
     const publicKey = userDb?.public_key;
     if (!publicKey)

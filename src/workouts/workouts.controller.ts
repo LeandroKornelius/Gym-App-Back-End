@@ -28,6 +28,7 @@ export class WorkoutsController {
 
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
+  @Roles(UserRole.COACH, UserRole.STUDENT)
   @Get()
   async getUserWorkouts(@Request() req) {
     const userId = req.user.userId;
