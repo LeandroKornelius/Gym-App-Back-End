@@ -14,6 +14,7 @@ async function bootstrap() {
     // These tags separate related routes into categories for easier use of the swagger
     .addTag('Authentication')
     .addTag('Users')
+    .addTag('Exercises')
 
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);

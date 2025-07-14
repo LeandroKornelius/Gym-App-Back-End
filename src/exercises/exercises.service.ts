@@ -6,8 +6,8 @@ import { CreateExerciseDto } from './create-exercise.dto';
 export class ExercisesService {
   constructor(private readonly db: DatabaseService) {}
 
-  async searchByName(name: string, value: string) {
-    const query = `SELECT * FROM Exercises WHERE ${name} LIKE '%${value}%'`;
+  async searchByName(value: string) {
+    const query = `SELECT * FROM Exercises WHERE name LIKE '%${value}%'`;
     return await this.db.query(query);
   }
 
