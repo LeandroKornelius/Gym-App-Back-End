@@ -8,6 +8,7 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { RolesGuard } from './auth/guards/role.guard';
 import { DatabaseModule } from './database/database.module';
 import { ExercisesModule } from './exercises/exercises.module';
+import { PaymentsModule } from './payments/payment.module';
 import { UsersModule } from './users/users.module';
 import { WorkoutsModule } from './workouts/workouts.module';
 
@@ -19,6 +20,7 @@ import { WorkoutsModule } from './workouts/workouts.module';
     UsersModule,
     ExercisesModule,
     WorkoutsModule,
+    PaymentsModule,
   ],
   controllers: [AppController],
   providers: [

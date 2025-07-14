@@ -1,12 +1,20 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { DatabaseService } from 'src/database/database.service';
-import { CreateUserDto } from './create-user.dto';
+import { CreateUserDto } from './dto/create-user.dto';
 import { UserEntity } from './users.entity';
 
 @Injectable()
 export class UsersService {
   constructor(private readonly db: DatabaseService) {}
+
+  async findById(id: number): Promise<UserEntity | null> {
+    const result = await this.db.query<UserEntity>(
+      `SELECT * FROM users WHERE id = ? LIMIT 1`,
+      [id],
+    );
+    return result[0] || null;
+  }
 
   async findOneByEmail(email: string): Promise<UserEntity | null> {
     const result = await this.db.query<UserEntity>(

@@ -4,7 +4,7 @@ import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { Public } from 'src/auth/isPublic.decorator';
 import { Roles } from 'src/auth/roles.decorator';
 import { UserRole } from 'src/types/userRoles.type';
-import { CreateExerciseDto } from './create-exercise.dto';
+import { CreateExerciseDto } from './dto/create-exercise.dto';
 import { ExercisesService } from './exercises.service';
 
 @ApiTags('Exercises')

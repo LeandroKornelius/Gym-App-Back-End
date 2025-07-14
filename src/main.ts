@@ -16,6 +16,7 @@ async function bootstrap() {
     .addTag('Users')
     .addTag('Exercises')
     .addTag('Workouts')
+    .addTag('Payments')
 
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);

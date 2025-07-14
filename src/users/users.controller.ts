@@ -11,7 +11,7 @@ import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { Public } from 'src/auth/isPublic.decorator';
 import { Roles } from 'src/auth/roles.decorator';
 import { UserRole } from 'src/types/userRoles.type';
-import { CreateUserDto } from './create-user.dto';
+import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 
 @ApiTags('Users')

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DatabaseService } from 'src/database/database.service';
-import { CreateExerciseDto } from './create-exercise.dto';
+import { CreateExerciseDto } from './dto/create-exercise.dto';
 
 @Injectable()
 export class ExercisesService {

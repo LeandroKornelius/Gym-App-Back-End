@@ -25,4 +25,7 @@ export class UserEntity {
 
   @IsEnum(UserRole)
   role: UserRole;
+
+  @IsString()
+  public_key: string;
 }
